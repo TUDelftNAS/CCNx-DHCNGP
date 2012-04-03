@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/ccnx-dhcngp/!svn/ver/2/patch
+END
+ccnd.c.patch
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/ccnx-dhcngp/!svn/ver/4/patch/ccnd.c.patch
+END

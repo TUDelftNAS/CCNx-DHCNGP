@@ -1,0 +1,59 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+import org.ccnx.ccn.protocol.ContentName;
+
+import com.sun.org.apache.xpath.internal.operations.Equals;
+
+
+public class RuleManager {
+	
+	private List<Rule> proposedRules;
+	
+	
+	public RuleManager()
+	{
+		proposedRules = new ArrayList<Rule>();			
+	}
+	
+	public synchronized void considerRules(String clientId, Rule tRule[])
+	{
+		//remove all previously know entries for this client.
+		ListIterator<Rule> itr = proposedRules.listIterator();
+		while(itr.hasNext())
+		{
+			Rule rule = itr.next();
+			if(rule.source != null && rule.source.equals(clientId))
+			{
+				itr.remove();
+			}
+		}
+		
+		//add the new ones
+		for(Rule rule : tRule)
+		{
+			proposedRules.add(rule);
+		}
+	}
+	
+	private HashMap<ContentName, Rule> aggrTable;
+	public synchronized HashMap<ContentName, Rule> calculateRules()
+	{
+		 aggrTable = new HashMap<ContentName, Rule>();
+		
+		for(Rule rule : proposedRules)
+		{
+			Rule tRule = aggrTable.get(rule.entrypoint);
+			if(tRule == null || rule.cost < tRule.cost)
+			{
+				aggrTable.put(rule.entrypoint, rule);
+			}
+		}
+		
+		return aggrTable;
+	}
+}
+

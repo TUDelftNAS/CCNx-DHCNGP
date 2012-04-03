@@ -1,0 +1,19 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.ccnx.ccn.protocol.ContentName;
+
+
+public class myRouteManager {
+
+	public static void requestRoutes(HashMap<ContentName, Rule> aggrTable) {
+		// TODO Auto-generated method stub
+		HashMap<String, ArrayList<Rule> > routesBySource = new HashMap<String, ArrayList<Rule>>();
+		
+		for(Rule tRule : aggrTable.values())
+		{
+			
+		}
+	}
+
+}

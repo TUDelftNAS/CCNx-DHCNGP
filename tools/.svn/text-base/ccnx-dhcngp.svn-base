@@ -1,0 +1,18 @@
+#!/bin/sh
+JAR_FILE=ccn.jar
+JAVA_HOME=${JAVA_HOME:=/usr}
+JAVA=$JAVA_HOME/bin/java
+SCRIPT_DIR=`dirname $0`
+
+CP1=$SCRIPT_DIR/../lib/*.jar
+CP1=`echo $CP1 | sed "s/ /:/g"`
+CP2=$SCRIPT_DIR/../bin
+
+echo $CP1
+echo $CP2
+
+JAVA_RUN="$JAVA -cp $CP1:$CP2 DHCNGP"
+echo $JAVA_RUN
+$JAVA_RUN
+
+

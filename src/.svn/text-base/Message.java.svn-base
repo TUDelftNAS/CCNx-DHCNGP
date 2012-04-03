@@ -1,0 +1,30 @@
+
+
+import java.io.Serializable;
+
+public  class Message implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 864353840212848267L;
+	public MessageType msgType;
+	public String clientID;
+	public String serverID;
+	public String clientHostname;
+	
+	public Face faces[];
+	public Rule rules[];
+	
+	public enum MessageType {
+		Discover,
+		Offer,
+		Request,
+		Acknowledgement;
+	}
+	
+	public Message (MessageType tMsgType)
+	{
+		msgType = tMsgType;
+		
+	}
+}

@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/ccnx-dhcngp/!svn/ver/1/src
+END
+myRouteManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/ccnx-dhcngp/!svn/ver/1/src/myRouteManager.java
+END
+RuleManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/ccnx-dhcngp/!svn/ver/1/src/RuleManager.java
+END
+DHCNGP.java
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/ccnx-dhcngp/!svn/ver/1/src/DHCNGP.java
+END
+Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/ccnx-dhcngp/!svn/ver/1/src/Message.java
+END
+Rule.java
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/ccnx-dhcngp/!svn/ver/1/src/Rule.java
+END
+Serializer.java
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/ccnx-dhcngp/!svn/ver/1/src/Serializer.java
+END
+Face.java
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/ccnx-dhcngp/!svn/ver/1/src/Face.java
+END

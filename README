@@ -1,4 +1,27 @@
-This is a placeholder until I have published the source-code of the prototype.
+Dynamic Host Configuration and Name Generation Protocol (DHCNGP)
 
-The expected time-of-arrival will be April 3rd.
+Copyright (C) 2012, Niels van Adrichem
 
+    This file is part of DHCNGP.
+
+    DHCNGP is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License version 3 as published by
+    the Free Software Foundation.
+
+    DHCNGP is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with DHCNGP.  If not, see <http://www.gnu.org/licenses/>.
+
+DHCNGP is a software package that dynamically configures clients using CCNx, and clients connected recursively to them (as in, not directly connected to a main server).
+Routing end-points are found in order to access data, but also dynamic generated names are created to globally share information.
+
+1. Prerequisites
+2. Building
+3. Configuration and Usage
+4. Future work
+
+More information will follow in the week of April 3rd.

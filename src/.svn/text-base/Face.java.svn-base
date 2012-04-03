@@ -1,0 +1,27 @@
+
+
+import java.io.Serializable;
+import java.net.InetAddress;
+
+import org.ccnx.ccn.impl.CCNNetworkManager.NetworkProtocol;
+
+
+public class Face implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6178484011215814079L;
+	/**
+	 * 
+	 */
+	
+	public NetworkProtocol protocol;
+	public InetAddress host;
+	public int port;
+	
+		public Face(NetworkProtocol tProtocol, InetAddress tHost, int tPort) {
+		protocol = tProtocol;
+		host = tHost;
+		port = tPort;
+	}
+}
