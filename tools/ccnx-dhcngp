@@ -2,7 +2,7 @@
 
 #Dynamic Host Configuration and Name Generation Protocol (DHCNGP)
 #
-#Copyright (C) 2012, Niels van Adrichem
+#Copyright (C) 2012, Delft University of Technology, Faculty of Electrical Engineering, Mathematics and Computer Science, Network Architectures and Services, Niels van Adrichem
 #
 #    This file is part of DHCNGP.
 #
