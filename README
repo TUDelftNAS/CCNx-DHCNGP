@@ -17,11 +17,64 @@ Copyright (C) 2012, Delft University of Technology, Faculty of Electrical Engine
     along with DHCNGP.  If not, see <http://www.gnu.org/licenses/>.
 
 DHCNGP is a software package that dynamically configures clients using CCNx, and clients connected recursively to them (as in, not directly connected to a main server).
-Routing end-points are found in order to access data, but also dynamic generated names are created to globally share information.
+Routing end-points are found in order to access data, but also dynamic generated names are created to enable global sharing of information.
+
+If you have any questions or are experiencing any troubles while using this program, please contact Niels van Adrichem at n.l.m.vanadrichem _AT_ student _DOT_ tudelft _DOT_ nl (replace the _AT_  and _DOT_ accordingly).
 
 1. Prerequisites
 2. Building
 3. Configuration and Usage
 4. Future work
+5. Contributors
 
-More information will follow in the week of April 3rd.
+1. Prerequisites
+- This software has been build and tested using the CCNx architecture version 0.5.1., first of all make sure you have a working installation of version 0.5.1.
+- Make sure you have a properly configure JDK and JRE to compile and run the program, for example I use the Sun JRE and JDK 1.6.
+- Patch your CCNx with the patch file, or the patched ccnd.c file from the folder patch.
+  It partially solves the CCNx bug http://redmine.ccnx.org/issues/100045 for IPv4 which enables you to create multiple multicast faces.
+  The easiest is to replace $CCNX_HOME/csrc/ccnd/ccnd.c with the ccnd.c file from the folder patch, CCNx version 0.5.1. only!!!, and rebuild ccnx by doing a ./configure, make and sudo make install.
+  
+2. Building
+	Download the source of DHCNGP and place it in a folder of your preference (I use /home/username/tools/DHCNGP, from here on I assume you have a console open in this directory).
+	The compilation and running of DHCNGP depend on a few jar-files carried along with CCNx-0.5.1 which should be in the folder lib.
+	You can either:
+		1)	create the folder lib (mkdir lib)
+			copy the files ccn.jar and bcprov-jdk16-143.jar from $CCNX_HOME/lib (cp $CCNX_HOME/lib/ccn.jar $CCNX_HOME/lib/bcprov-jdk16-143.jar lib)
+		2) create a symlink to your $CCNX_HOME/lib folder (in case you frequently patch your CCNx) (ln -s $CCNX_HOME/lib lib)
+
+	Run tools/compile.sh to build the source.
+	A folder named bin holding the class-files is created automatically
+
+3. Configuration and Usage
+	The configuration of DHCNGP is done in the file config.properties.
+	Only nodes which are end-points, i.e. nodes connecting a personal or SOHO LAN and an AS, such as an ISP-preconfigured modem, need configuration.
+	Entries beginning with a # are regarded as comments.
+	
+	An entry in the config-file indicates the node is an entry-point for a certain prefix.
+	E.g. an ISP can forward all Interests to /isp.net/bobsConnection to the node, the node can generate subnames of this entry-point name and give those to clients to enable them to share information using that name.
+	These clients can create further subnames to enable access to clients which are again connected to them, though not directly to the entry-point, etc., etc.
+	
+	Every entry is indicated with a number increasingly numbered from 0.
+	E.g. an entry (entry.0 = ccnx:/isp.net/alice) indicates that this node receives global interests for /isp.net/alice and can propagate to all LAN-connected clients that it is responsible for that entry-point.
+	"entry.0.cost = Integer" indicates the initial cost of the entry-point (in case multiple nodes within a LAN can serve a single entry-point and is currently increased with 10 at every forwarding node deeper into the LAN-network).
+	"entry.0.aggregate = Boolean" indicates whether the server may generate subnames and hand those out to clients who then can create further subnames for nodes connected deeper into the network. 
+		If not, the entry-point name is merely used as a point of information discovery of which the lan-clients are made aware.
+	In both cases clients choose routes to each entry-point based on a shortest-path algorithm.
+	
+	When the, optional, configuration is finished, the daemon can be started by running "tools/ccnx-dhcngp".
+	The daemon will load its preconfigured entry-points and query the local networks for routes to other networks.
+	When finished it creates a forwarding table based on shortest paths to the entry-points and users can start using the dynamically generated names to globally share contents.
+	After this, the client turns into a server in order to connect new clients and generate names for those.
+	
+4. Future work
+	Although the proto-type works fine for a first attempt, there are a number of greater and smaller challenges to be taken:
+	- We need detection of changing and breaking links in order to restart the path-discovery mechanism when necessary.
+	- We need periodic recalculation of the shortest paths.
+	- We need to check the already avalaible path-vector for loop detection.
+	- In case we receive a Discovery or Offer message from a node whose subnet we can't connect to, we need to ignore this message.
+	- Currently the messages are encapsulated using the Java Serialization interface, for interoperability with non-Java environments we might to change this to a more generic serialization using f.e. XML or JSON.
+	- We need an API for applications to automatically receive the names they can properly use to globally share content. 
+	
+5. Contributors  
+	Implementation and Testing: Niels L.M. van Adrichem (Delft University of Technology)
+	Advising: Special thanks go to Dr. Fernando Kuipers (Delft University of Technology) 
