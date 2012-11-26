@@ -19,7 +19,7 @@ Copyright (C) 2012, Delft University of Technology, Faculty of Electrical Engine
 DHCNGP is a software package that dynamically configures clients using CCNx, and clients connected recursively to them (as in, not directly connected to a main server).
 Routing end-points are found in order to access data, but also dynamic generated names are created to enable global sharing of information.
 
-If you have any questions or are experiencing any troubles while using this program, please contact Niels van Adrichem at n.l.m.vanadrichem _AT_ student _DOT_ tudelft _DOT_ nl (replace the _AT_  and _DOT_ accordingly).
+If you have any questions or are experiencing any troubles while using this program, please contact Niels van Adrichem at n.l.m.vanadrichem _AT_ tudelft _DOT_ nl (replace the _AT_  and _DOT_ accordingly).
 
 1. Prerequisites
 2. Building
@@ -76,5 +76,5 @@ If you have any questions or are experiencing any troubles while using this prog
 	- We need an API for applications to automatically receive the names they can properly use to globally share content. 
 	
 5. Contributors  
-	Implementation and Testing: Niels L.M. van Adrichem (Delft University of Technology)
-	Advising: Special thanks go to Dr. Fernando Kuipers (Delft University of Technology) 
+	Implementation and Testing: Ir. Niels L.M. van Adrichem (Delft University of Technology)
+	Advising: Special thanks go to Dr. ir. Fernando Kuipers (Delft University of Technology) 
