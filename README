@@ -19,7 +19,7 @@ Copyright (C) 2012, Delft University of Technology, Faculty of Electrical Engine
 DHCNGP is a software package that dynamically configures clients using CCNx, and clients connected recursively to them (as in, not directly connected to a main server).
 Routing end-points are found in order to access data, but also dynamic generated names are created to enable global sharing of information.
 
-When using DHCNGP please refer to the accompanying article: Niels L. M. van Adrichem and Fernando A. Kuipers, 2013, Globally Accessible Names in Named Data Networking, The 2nd IEEE International Workshop on Emerging Design Choices in Name-Oriented Networking (NOMEN 2013), Italy, Turin, April 19, http://www.nas.ewi.tudelft.nl/images/stories/Niels/GloballyAccessibleNamesinNDN.pdf
+When using DHCNGP please refer to the accompanying article: Niels L. M. van Adrichem and Fernando A. Kuipers, 2013, Globally Accessible Names in Named Data Networking, The 2nd IEEE International Workshop on Emerging Design Choices in Name-Oriented Networking (NOMEN 2013), workshop of IEEE INFOCOM, Italy, Turin, April 19, http://www.nas.ewi.tudelft.nl/images/stories/Niels/GloballyAccessibleNamesinNDN.pdf
 
 If you have any questions or are experiencing any troubles while using this program, please contact Niels van Adrichem at n.l.m.vanadrichem _AT_ tudelft _DOT_ nl (replace the _AT_  and _DOT_ accordingly).
 
